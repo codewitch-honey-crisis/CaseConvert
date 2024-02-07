@@ -67,15 +67,6 @@ namespace CaseConvert
 					break;
 				case CaseStyle.CamelCase:
 					i = 0;
-					while (i < cracked.Count)
-					{
-						if (!char.IsDigit(cracked[i], 0))
-						{
-							break;
-						}
-						
-						++i;
-					}
 					if (i < cracked.Count)
 					{
 						result.Append(cracked[i].ToLowerInvariant());
@@ -285,6 +276,10 @@ namespace CaseConvert
 						state = 0;
 						break;						
 				}
+			}
+			if(sb.Length>0)
+			{
+				result.Add(sb.ToString());
 			}
 			return result;
 		}
